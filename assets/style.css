@@ -1,16 +1,25 @@
 
 body {
   font-family: sans-serif;
-  background: #f4f4f4;
+  background: #f9f9f9;
   padding: 20px;
-  max-width: 700px;
-  margin: auto;
+  margin: 0;
 }
-h1 { text-align: center; }
-label, select, input, button {
-  font-size: 16px;
-  margin: 10px 0;
+header h1 {
+  text-align: center;
+  color: #2D86C6;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 15px 0;
+}
+label, input, select {
   display: block;
+  margin: 10px 0;
+  font-size: 16px;
 }
 input[type='number'] {
   padding: 6px;
@@ -21,34 +30,29 @@ button {
   background: #2D86C6;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  cursor: pointer;
 }
-#result {
-  font-size: 18px;
-  margin-top: 15px;
-  color: #333;
-}
-#contact-buttons {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 25px;
+.result {
+  font-size: 17px;
+  white-space: pre-line;
+  margin-top: 10px;
 }
 #contact-buttons a {
+  display: block;
+  text-align: center;
   background: #2D86C6;
   color: white;
   padding: 12px;
-  text-align: center;
-  border-radius: 6px;
+  margin: 5px 0;
   text-decoration: none;
+  border-radius: 6px;
 }
 .info {
-  background: #ffcc00;
-  color: black;
+  background: gold;
+  padding: 2px 6px;
+  margin-left: 8px;
   border-radius: 50%;
-  display: inline-block;
-  padding: 2px 8px;
-  margin-left: 5px;
   cursor: pointer;
 }
 .popup {
@@ -56,24 +60,14 @@ button {
   justify-content: center;
   align-items: center;
   position: fixed;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 1000;
 }
 .popup img {
-  max-width: 90%;
-  max-height: 70vh;
-  border: 5px solid white;
-  border-radius: 8px;
+  max-width: 90%; max-height: 80vh;
+  border: 4px solid white; border-radius: 10px;
 }
 .popup .close {
-  position: absolute;
-  top: 20px; right: 30px;
-  color: white;
-  font-size: 32px;
-  cursor: pointer;
-}
-@media(max-width: 600px) {
-  input[type='number'] { width: 80px; }
-  button { width: 100%; }
+  position: absolute; top: 20px; right: 30px;
+  color: white; font-size: 28px; cursor: pointer;
 }
