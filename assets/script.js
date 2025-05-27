@@ -53,36 +53,44 @@ function calculate() {
   if (isNaN(rooms) || rooms < 1) rooms = 1;
   if (isNaN(area) || area < 1) area = 1;
 
-  const { fixed, max, rate, room } = prices[pkg];
-  let total = area <= 5 ? fixed : (area <= 25 ? fixed + (area - 5) * rate : area * rate);
-  total += (rooms - 1) * room;
+  const { fixed, rate, room } = prices[pkg];
+  let areaPrice = area <= 5 ? fixed : (area <= 25 ? fixed + (area - 5) * rate : area * rate);
+  let roomAddon = (rooms - 1) * room;
 
   const accessories = ["led", "chandelier", "linear", "profile", "magnetic", "rail", "curtain"];
   let accessoryTotal = 0;
+  let accessoryDetails = "";
 
   accessories.forEach(id => {
     const val = parseFloat(document.getElementById(id).value) || 0;
-    accessoryTotal += val * accessoryPrices[id];
+    const subtotal = val * accessoryPrices[id];
+    accessoryTotal += subtotal;
+    if (val > 0) {
+      accessoryDetails += `${id}: ${val} x ${accessoryPrices[id]}₾ = ${subtotal}₾\n`;
+    }
   });
 
-  total += accessoryTotal;
+  const total = areaPrice + roomAddon + accessoryTotal;
 
   const result = document.getElementById("result");
-  result.innerText = `საბოლოო ფასი: ${total.toFixed(2)} ₾`;
+  result.innerText =
+    `ფართობის ღირებულება: ${areaPrice.toFixed(2)} ₾\n` +
+    `ოთახების დანამატი: ${roomAddon.toFixed(2)} ₾\n` +
+    (accessoryTotal > 0 ? `აქსესუარები: ${accessoryTotal.toFixed(2)} ₾\n${accessoryDetails}` : "") +
+    `საბოლოო ფასი: ${total.toFixed(2)} ₾`;
   result.style.display = "block";
 
   const contactButtons = document.getElementById("contact-buttons");
   contactButtons.style.display = "flex";
 
   const text = encodeURIComponent(
-    `Stretch Ceiling შეკვეთა:%0Aპაკეტი: ${pkg}%0Aფართობი: ${area} მ²%0Aოთახები: ${rooms}%0აფასი: ${total.toFixed(2)} ₾`
+    `Stretch Ceiling შეკვეთა:%0Aპაკეტი: ${pkg}%0Aფართობი: ${area} მ²%0Aოთახები: ${rooms}%0Aფასი: ${total.toFixed(2)} ₾`
   );
   document.getElementById("wa").href = `https://wa.me/995511167665?text=${text}`;
 
   setTimeout(() => contactButtons.scrollIntoView({ behavior: "smooth" }), 300);
 }
 
-// Popup logic
 document.querySelectorAll(".info").forEach(el => {
   el.addEventListener("click", () => {
     const img = el.dataset.img;
