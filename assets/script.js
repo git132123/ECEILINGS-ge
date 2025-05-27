@@ -86,7 +86,7 @@ function calculate() {
   const text = encodeURIComponent(
     `Stretch Ceiling შეკვეთა:%0Aპაკეტი: ${pkg}%0Aფართობი: ${area} მ²%0Aოთახები: ${rooms}%0Aფასი: ${total.toFixed(2)} ₾`
   );
-  document.getElementById("wa").href = `https://wa.me/995511167665?text=${text}`;
+  document.getElementById("wa").href = `https://wa.me/995511167664?text=${text}`;
 
   setTimeout(() => contactButtons.scrollIntoView({ behavior: "smooth" }), 300);
 }
