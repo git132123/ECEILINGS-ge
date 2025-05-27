@@ -2,59 +2,57 @@
 <html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <title>გასაჭიმი ჭერის კალკულატორი</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="მოითხოვე გასაჭიმი ჭერის ფასი 1 წუთში — გამოთვალე ღირებულება და დაგვიკავშირდი.">
-  <meta property="og:title" content="გასაჭიმი ჭერის კალკულატორი">
-  <meta property="og:description" content="სწრაფი კალკულაცია, რეალური ფასები, დაუკავშირდი ერთი ღილაკით.">
+  <title>ECEILINGS.ge | გასაჭიმი ჭერის კალკულატორი</title>
+  <meta name="description" content="გამოითვალე გასაჭიმი ჭერის ღირებულება წამებში და დაუკავშირდი ჩვენ გუნდს ერთი ღილაკით.">
+  <meta property="og:title" content="ECEILINGS.ge - ფასის კალკულატორი">
+  <meta property="og:description" content="სწრაფი გამოთვლა, დეტალური შედეგი, WhatsApp კონტაქტი.">
   <meta property="og:image" content="assets/popup-images/led.jpg">
-  <meta property="og:url" content="https://git132123.github.io/stretch-ceiling-calculator/">
+  <meta property="og:url" content="https://git132123.github.io/ECEILINGS-ge/">
+  <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
-  <header>
-    <h1>გასაჭიმი ჭერის ფასის კალკულატორი</h1>
-  </header>
+  <header><h1>ფასის გამოთვლა - ECEILINGS.ge</h1></header>
   <main>
-    <section id="package-selection">
-      <label for="package">აირჩიეთ პაკეტი:</label>
+    <section class="card">
+      <label>აირჩიეთ პაკეტი:</label>
       <select id="package">
         <option value="econom" selected>ეკონომი</option>
         <option value="standard">სტანდარტი</option>
         <option value="premium">პრემიუმი</option>
         <option value="exclusive">ექსკლუზიური</option>
       </select>
-      <div id="details"></div>
+      <div id="details" class="desc"></div>
     </section>
 
-    <section id="basic-inputs">
+    <section id="basic-inputs" class="card">
       <label>ფართობი (მ²):</label>
       <input type="number" id="area" min="1" value="1">
       <label>ოთახების რაოდენობა:</label>
       <input type="number" id="rooms" min="1" value="1">
     </section>
 
-    <section id="accessory-toggle">
+    <section class="card">
       <label><input type="checkbox" id="toggleAccessories"> ჭერის აქსესუარები</label>
     </section>
 
-    <section id="accessories" style="display: none;">
-      <div><label>ლედ (10₾)</label><input id="led" type="number" min="0" value="0"><span class="info" data-img="led.jpg">?</span></div>
-      <div><label>ჭაღი (20₾)</label><input id="chandelier" type="number" min="0" value="0"><span class="info" data-img="chandelier.jpg">?</span></div>
-      <div><label>ხაზოვანი (120₾/მ)</label><input id="linear" type="number" min="0" value="0"><span class="info" data-img="linear.jpg">?</span></div>
-      <div><label>პროფილის (100₾/მ)</label><input id="profile" type="number" min="0" value="0"><span class="info" data-img="profile.jpg">?</span></div>
-      <div><label>მაგნიტური (190₾/მ)</label><input id="magnetic" type="number" min="0" value="0"><span class="info" data-img="magnetic.jpg">?</span></div>
-      <div><label>რელსური (50₾/მ)</label><input id="rail" type="number" min="0" value="0"><span class="info" data-img="rail.jpg">?</span></div>
-      <div><label>საფარდე კარნიზი (100₾/მ)</label><input id="curtain" type="number" min="0" value="0"><span class="info" data-img="curtain.jpg">?</span></div>
+    <section id="accessories" class="card" style="display:none;">
+      <div><label>ლედ</label><input id="led" type="number" min="0" value="0"><span class="info" data-img="led.jpg">?</span></div>
+      <div><label>ჭაღი</label><input id="chandelier" type="number" min="0" value="0"><span class="info" data-img="chandelier.jpg">?</span></div>
+      <div><label>ხაზოვანი</label><input id="linear" type="number" min="0" value="0"><span class="info" data-img="linear.jpg">?</span></div>
+      <div><label>პროფილის</label><input id="profile" type="number" min="0" value="0"><span class="info" data-img="profile.jpg">?</span></div>
+      <div><label>მაგნიტური</label><input id="magnetic" type="number" min="0" value="0"><span class="info" data-img="magnetic.jpg">?</span></div>
+      <div><label>რელსური</label><input id="rail" type="number" min="0" value="0"><span class="info" data-img="rail.jpg">?</span></div>
+      <div><label>საფარდე კარნიზი</label><input id="curtain" type="number" min="0" value="0"><span class="info" data-img="curtain.jpg">?</span></div>
     </section>
 
-    <section id="calculate-section">
+    <section class="card">
       <button onclick="calculate()">გამოთვლა</button>
-      <div id="result"></div>
+      <div id="result" class="result"></div>
     </section>
 
-    <section id="contact-buttons">
+    <section id="contact-buttons" class="card" style="display:none;">
       <a id="wa" target="_blank">WhatsApp</a>
       <a href="tel:+995511167665">დარეკე</a>
       <a href="https://www.facebook.com/gasachimicherebii" target="_blank">Messenger</a>
