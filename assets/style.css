@@ -1,0 +1,79 @@
+
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+h1 { text-align: center; }
+label, select, input, button {
+  font-size: 16px;
+  margin: 10px 0;
+  display: block;
+}
+input[type='number'] {
+  padding: 6px;
+  width: 100px;
+}
+button {
+  padding: 10px 20px;
+  background: #2D86C6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+#result {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #333;
+}
+#contact-buttons {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+#contact-buttons a {
+  background: #2D86C6;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.info {
+  background: #ffcc00;
+  color: black;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background: rgba(0,0,0,0.7);
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1000;
+}
+.popup img {
+  max-width: 90%;
+  max-height: 70vh;
+  border: 5px solid white;
+  border-radius: 8px;
+}
+.popup .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+}
+@media(max-width: 600px) {
+  input[type='number'] { width: 80px; }
+  button { width: 100%; }
+}
