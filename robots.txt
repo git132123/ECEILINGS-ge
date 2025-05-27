@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://git132123.github.io/ECEILINGS-ge/sitemap.xml
